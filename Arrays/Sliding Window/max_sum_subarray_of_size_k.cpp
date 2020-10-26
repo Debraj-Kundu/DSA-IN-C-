@@ -3,7 +3,7 @@
 int maxSum(int* arr, int n, int k)
 {
     if(n<k){
-        cout << "Invalid";
+        std::cout << "Invalid";
         return -1;
     }
 
