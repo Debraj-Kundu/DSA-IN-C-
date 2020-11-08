@@ -43,7 +43,7 @@ node* deleteNode(node* root, int item)
         root->left = deleteNode(root->left, item);
     else if(item > root->data)
         root->right = deleteNode(root->right, item);
-    if(item == root->data){
+    else{
         if(root->left == NULL && root->right == NULL){
             node* temp = root;
             root = NULL;
@@ -76,6 +76,20 @@ void inorder(node* r){
     }
 }
 
+/*int height(node* root){
+    if(root == nullptr){
+        return 0;
+    }
+    else if(root->left == nullptr){
+        return height(root->right)+1;
+    }
+    else if(root->right == nullptr){
+        return height(root->left)+1;
+    }
+    else{
+        return std::max(height(root->left), height(root->right))+1;
+    }
+}*/
 int main()
 {
     node* root;
@@ -83,9 +97,10 @@ int main()
     root=insert(root,70);root=insert(root,5);root=insert(root,4);
     root=insert(root,7);root=insert(root,6);
     inorder(root);
-    root = deleteNode(root,5);
+    //root = deleteNode(root,5);
     std::cout << '\n';
     inorder(root);
+    //std::cout << "\nheight of subtree: " << height(root);
 
     return 0;
 }
