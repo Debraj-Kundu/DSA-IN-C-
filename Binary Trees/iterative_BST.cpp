@@ -89,8 +89,8 @@ void preorder(node* r)
 void postorder(node* r)
 {
     if(r != NULL){
-        preorder(r->left);
-        preorder(r->right);
+        postorder(r->left);
+        postorder(r->right);
         cout<<r->data<<' ';
     }
 }
