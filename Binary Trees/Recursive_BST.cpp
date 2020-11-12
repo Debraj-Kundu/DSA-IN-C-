@@ -15,6 +15,7 @@ public:
   void inorder(node *);
   void preorder(node*);
   void postorder(node*);
+  void levelOrder(node*);
   int cnt_nodes(node* );
 };
 node* get_node(int item){
@@ -104,6 +105,24 @@ inline void node::postorder(node* root)
         cout<<root->data<<' ';
     }
 }
+inline void node::levelOrder(node* root){
+  if(root == nullptr) return;
+  std::queue<node*> level;
+  level.push(root);
+  while (level.empty() == false)
+  {
+    node* parent = level.front();
+    std::cout << parent->data << ' ';
+    level.pop();
+    if(parent->left != nullptr){
+      level.push(parent->left);
+    }
+    if(parent->right != nullptr){
+      level.push(parent->right);
+    }
+  }
+  return;
+}
 int main()
 {
   node* l1 = nullptr;
@@ -119,6 +138,8 @@ int main()
   l1->inorder(l1);
   cout << "\nheight: " << l1->height(l1);
   cout << "\nNodes: " << l1->cnt_nodes(l1);
+  cout << endl <<"level order: ";
+  l1->levelOrder(l1);
 
   return 0;
 }
