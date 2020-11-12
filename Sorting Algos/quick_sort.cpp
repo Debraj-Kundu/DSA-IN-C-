@@ -4,17 +4,16 @@
 #define ll long long
 
 class Array{
-    ll int arr[10000];
+    ll int* arr;
     ll int size;
-    int partition(ll int* arr, int l, int r);
-    void quickSort(ll int* arr, int l, int r);
 public:
     Array(){
-        memset(arr, 0, 0);
+        arr = new ll int[0];
         size=0;
     }
     Array(ll int n){
         size = n;
+        arr = new ll int[size];
         for(ll int i=0; i<size; i++){
             std::cin >> arr[i];
         }
