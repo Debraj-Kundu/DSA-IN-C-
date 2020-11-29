@@ -39,7 +39,7 @@ public:
     }
 };
 
-int Array::partition(ll int* arr, int l, int r)
+int partition(ll int* arr, int l, int r)
 {
     ll int pivot = arr[r];
     ll int i = l-1;
@@ -69,7 +69,7 @@ int main()
     int n;
     std::cin >> n;
     Array arr(n);
-    arr.quick_sort();
+    arr.quick_sort(false);
     arr.print();
 
    return 0;
